@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /about
+permalink: /
 subtitle: j4f3th3mail@gmail.com
 
 profile:
