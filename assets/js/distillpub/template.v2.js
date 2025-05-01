@@ -3087,7 +3087,7 @@ d-citation-list .references .title {
       comment: /<!--[\s\S]*?-->/,
       prolog: /<\?[\s\S]+?\?>/,
       doctype: {
-        pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:(?!<!--)[^"'\]]|"[^"]*"|'[^']*'|<!--[\s\S]*?-->)*\]\s*)?>/i,
+        pattern: /<!DOCTYPE(?:[^>"'\[\]]|"[^"]*"|'[^']*'){1,500}(?:\[(?:[^"'\\\]]|"[^"]*"|'[^']*'|<!--[\s\S]{0,500}?-->){0,500}\]\s*)?>/i,
         greedy: true,
       },
       cdata: /<!\[CDATA\[[\s\S]*?]]>/i,
@@ -3170,7 +3170,7 @@ d-citation-list .references .title {
         var def = {};
         def[tagName] = {
           pattern: RegExp(
-            /(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g, function () {
+            /(<__[^>]*?>)(?:<!\[CDATA\[.*?\]\]>\s*|[^<]){0,10000}?(?=<\/__>)/.source.replace(/__/g, function () {
               return tagName;
             }),
             "i"
@@ -3330,7 +3330,7 @@ d-citation-list .references .title {
     Prism.languages.insertBefore("javascript", "keyword", {
       regex: {
         pattern:
-          /((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*[\s\S]*?\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,
+          /\/(?!\/)(?:[^\\\/\r\n\[]|\\.|(?:\[(?:[^\]\\\r\n]|\\.)*\]))+\/[gimyus]{0,6}/,
         lookbehind: true,
         greedy: true,
       },
@@ -4235,7 +4235,17 @@ ${css}
 
       if (this.hasAttribute("block")) {
         // normalize the tab indents
-        content = content.replace(/\n/, "");
+        
+	function escapeHtml(str) {
+ 	 return str
+    		.replace(/&/g, "&amp;")
+    		.replace(/</g, "&lt;")
+   		.replace(/>/g, "&gt;")
+    		.replace(/"/g, "&quot;")
+   		.replace(/'/g, "&#039;");
+	}
+
+	content = escapeHtml(content.replace(/\n/g, "")); 
         const tabs = content.match(/\s*/);
         content = content.replace(new RegExp("\n" + tabs, "g"), "\n");
         content = content.trim();
