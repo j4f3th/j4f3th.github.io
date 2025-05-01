@@ -2695,7 +2695,7 @@ d-citation-list .references .title {
           var rest = grammar.rest;
           if (rest) {
             for (var token in rest) {
-              grammar[token] = rest[token];
+                if (token !== "__proto__" && token !== "constructor" && token !== "prototype") { grammar[token] = rest[token];
             }
 
             delete grammar.rest;
@@ -4670,13 +4670,16 @@ d-references {
   <h2>Table of contents</h2>
   <ul>`;
 
+	  const escapeHTML = function (str) {return str.replace(/[&<>"']/g, function (char) { const escapeMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }; return escapeMap[char]; }); };
+
+
     for (const el of headings) {
       // should element be included in TOC?
       const isInTitle = el.parentElement.tagName == "D-TITLE";
       const isException = el.getAttribute("no-toc");
       if (isInTitle || isException) continue;
       // create TOC entry
-      const title = el.textContent;
+      const title = escapeHTML(el.textContent);
       const link = "#" + el.getAttribute("id");
 
       let newLine = "<li>" + '<a href="' + link + '">' + title + "</a>" + "</li>";
