@@ -21,6 +21,13 @@
   const months = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
   const zeroPad = (n) => (n < 10 ? "0" + n : n);
 
+  const escapeHTML = function (str) {
+    return str.replace(/[&<>"']/g, function (char) {
+      const escapeMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+      return escapeMap[char];
+    });
+  };
+
   const RFC = function (date) {
     const day = days[date.getDay()].substring(0, 3);
     const paddedDate = zeroPad(date.getDate());
@@ -4666,7 +4673,7 @@ d-references {
       const isException = el.getAttribute("no-toc");
       if (isInTitle || isException) continue;
       // create TOC entry
-      const title = el.textContent;
+      const title = escapeHTML(el.textContent);
       const link = "#" + el.getAttribute("id");
 
       let newLine = "<li>" + '<a href="' + link + '">' + title + "</a>" + "</li>";
