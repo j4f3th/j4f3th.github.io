@@ -37,7 +37,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog";
               },
-            },{
+            },{id: "post-what-is-xss-and-how-to-exploit-it",
+        
+          title: "What is XSS and How to Exploit it",
+        
+        description: "What is XSS and How we can find and exploit it",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/HowtoXSS/";
+          
+        },
+      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
