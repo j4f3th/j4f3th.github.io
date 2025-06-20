@@ -48,7 +48,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/HowtoXSS/";
           
         },
-      },{
+      },{id: "projects-cookiesmonster",
+          title: 'cookiesMonster 🍪',
+          description: "A tool to collect cookies and show them in a web page.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_cookiesMonster/";
+            },},{id: "projects-showusers",
+          title: 'showusers',
+          description: "Run it to show the active users from the GNU/Linux system and their info.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_showusers/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
