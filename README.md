@@ -9,8 +9,8 @@ I am Jafeth AKA ss4tan, I am a passionate tech guy who loves hacking and cyberse
 
 <div>
     <center>
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/prof_pic.jpeg" title="Profile" class="img-fluid rounded z-depth-1" %}
+    <div>
+        <img src="assets/img/prof_pic.jpeg">
     </div>
    </center>
 </div>
