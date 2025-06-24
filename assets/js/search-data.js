@@ -58,6 +58,11 @@ ninja.data = [{
           description: "Run it to show the active users from the GNU/Linux system and their info.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_showusers/";
+            },},{id: "projects-evilseeker",
+          title: 'EvilSeeker 🔭',
+          description: "Tool for searching with google dorking in a faster and specific way with proxies or without proxies.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_evilSeeker/";
             },},{
         id: 'social-email',
         title: 'email',
