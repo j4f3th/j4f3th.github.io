@@ -6,3 +6,11 @@ I am Jafeth AKA ss4tan, I am a passionate tech guy who loves hacking and cyberse
 
 
 - Instagram: [md5_j4ff3th](https://instagram/md5_j4ff3th)
+
+<div>
+    <center>
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/prof_pic.jpeg" title="Profile" class="img-fluid rounded z-depth-1" %}
+    </div>
+   </center>
+</div>
