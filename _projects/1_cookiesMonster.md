@@ -4,7 +4,7 @@ title: cookiesMonster 🍪
 description: A tool to collect cookies and show them in a web page. 
 img: assets/img/projects/cookiesmonster/cookiesmonster.jpg
 importance: 1
-category: fun
+category: Hacking
 related_publications: false
 ---
 

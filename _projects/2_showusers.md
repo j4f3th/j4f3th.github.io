@@ -4,7 +4,7 @@ title: showusers
 description: Run it to show the active users from the GNU/Linux system and their info. 
 img: assets/img/projects/showusers/showusers.jpg
 importance: 1
-category: fun
+category: Linux
 related_publications: false
 ---
 

@@ -4,7 +4,7 @@ title: EvilSeeker 🔭
 description: Tool for searching with google dorking in a faster and specific way with proxies or without proxies. 
 img: assets/img/projects/evilSeeker/evilseeker.jpg
 importance: 1
-category: work
+category: BugBounty
 related_publications: false
 ---
 
